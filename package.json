@@ -1,0 +1,22 @@
+{
+  "name": "simply-crud",
+  "version": "1.0.0",
+  "description": "an example implementation of the crud in nodejs",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariusbronte-portfolio/simply-crud-nodejs-example.git"
+  },
+  "author": "ariusbronte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ariusbronte-portfolio/simply-crud-nodejs-example/issues"
+  },
+  "homepage": "https://github.com/ariusbronte-portfolio/simply-crud-nodejs-example#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
