@@ -13,4 +13,13 @@ database.connect(e => {
     console.log('successfully connecting to the database');
 });
 
+database.makeQuery = function makeQuery(query, values = []) {
+    return new Promise(async (resolve, reject) => {
+        await database.query(query, values, (e, rows) => {
+            if (e) return reject(e);
+            else resolve(rows);
+        });
+    });
+}
+
 module.exports = database;
