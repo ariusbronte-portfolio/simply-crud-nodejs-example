@@ -17,6 +17,11 @@ const userService = {
         const query = `UPDATE Users SET ${fields.join(', ')} WHERE id = ?`;
 
         return await database.makeQuery(query, values);
+    },
+    delete: async function $delete(values) {
+        const query = 'DELETE FROM Users WHERE id = ?';
+
+        return await database.makeQuery(query, values);
     }
 }
 
