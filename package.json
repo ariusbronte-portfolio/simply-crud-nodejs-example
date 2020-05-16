@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/ariusbronte-portfolio/simply-crud-nodejs-example#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "i": "^0.3.6",
+    "mysql": "^2.18.1",
+    "npm": "^6.14.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
