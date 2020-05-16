@@ -12,6 +12,11 @@ const userService = {
         const query = `INSERT INTO Users (FirstName, LastName, CreationHistory) VALUES (?, ?, '${new Date().toUTC()}')`;
 
         return await database.makeQuery(query, values);
+    },
+    patch: async function edit(fields, values) {
+        const query = `UPDATE Users SET ${fields.join(', ')} WHERE id = ?`;
+
+        return await database.makeQuery(query, values);
     }
 }
 
