@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
 
     await userService.post([first_name, last_name]);
 
-    return res.status(200).send();
+    return res.status(201).send();
 });
 
 module.exports = router;

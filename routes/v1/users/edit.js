@@ -44,7 +44,7 @@ router.patch('/', async (req, res, next) => {
 
     await userService.patch(fields, params);
 
-    return res.status(200).send();
+    return res.status(204).send();
 });
 
 
