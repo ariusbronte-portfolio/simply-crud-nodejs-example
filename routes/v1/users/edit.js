@@ -2,6 +2,7 @@
 
 const router = require('express').Router();
 const {userService} = require('../services/users/userService');
+const {ErrorHandler} = require("../../../helpers/error");
 
 const Joi = require('@hapi/joi');
 const schema = Joi.object({
@@ -20,31 +21,36 @@ const schema = Joi.object({
 })
 
 router.patch('/', async (req, res, next) => {
-    const {error} = await schema.validateAsync(req.body);
-    if (error) return res.status(422).send(error);
+    try {
+        await schema.validateAsync(req.body).catch(reason => {
+            throw new ErrorHandler(422, reason);
+        });
 
-    const id = req.body.id;
-    const first_name = req.body.first_name;
-    const last_name = req.body.last_name;
+        const id = req.body.id;
+        const first_name = req.body.first_name;
+        const last_name = req.body.last_name;
 
-    const fields = [];
-    const params = [];
+        const fields = [];
+        const params = [];
 
-    if(first_name) {
-        fields.push('FirstName = ?');
-        params.push(first_name);
+        if (first_name) {
+            fields.push('FirstName = ?');
+            params.push(first_name);
+        }
+
+        if (last_name) {
+            fields.push('LastName = ?');
+            params.push(last_name);
+        }
+
+        params.push(id);
+
+        await userService.patch(fields, params);
+
+        return res.status(204).send();
+    } catch (e) {
+        next(e);
     }
-
-    if(last_name) {
-        fields.push('LastName = ?');
-        params.push(last_name);
-    }
-
-    params.push(id);
-
-    await userService.patch(fields, params);
-
-    return res.status(204).send();
 });
 
 
