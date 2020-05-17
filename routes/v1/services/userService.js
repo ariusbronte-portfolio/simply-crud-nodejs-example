@@ -1,6 +1,6 @@
-const database = require('../../../../database/connection');
+const database = require('../../../database/connection');
 
-require('../../../../extensions/dateExtensions');
+require('../../../extensions/dateExtensions');
 
 const userService = {
     get: async function get() {

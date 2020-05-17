@@ -1,7 +1,7 @@
 'use strict'
 
 const router = require('express').Router();
-const {userService} = require('../services/users/userService');
+const {userService} = require('../services/userService');
 const {ErrorHandler} = require("../../../helpers/error");
 
 const Joi = require('@hapi/joi');
